@@ -9,12 +9,15 @@ import android.support.test.rule.ActivityTestRule
 import android.support.test.uiautomator.UiDevice
 import com.victor.health.stayfit.R
 import com.victor.health.stayfit.assertions.RecyclerViewItemCountAssertion.Companion.withItemCount
+import com.victor.health.stayfit.presenter.main.MainPresenter
 import com.victor.health.stayfit.ui.main.MainActivity
 import cucumber.api.java.After
 import cucumber.api.java.Before
 import cucumber.api.java.en.Given
 import cucumber.api.java.en.Then
 import cucumber.api.java.en.When
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import junit.framework.Assert.assertNotNull
 import org.hamcrest.Matchers.greaterThan
 import org.junit.Rule
@@ -49,6 +52,7 @@ class MainViewTest {
     @Given("^I am in the main view screen")
     fun i_am_in_the_main_view_screen() {
         assertNotNull(mainActivity)
+
     }
 
     @When("^I wait for a moment")

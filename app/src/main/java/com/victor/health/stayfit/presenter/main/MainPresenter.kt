@@ -3,9 +3,9 @@ package com.victor.health.stayfit.presenter.main
 import com.victor.health.stayfit.data.databases.Goal
 import com.victor.health.stayfit.data.databases.GoalDataBase
 import com.victor.health.stayfit.data.mappers.GoalMapper
-import com.victor.health.stayfit.data.models.GoalItemDto
 import com.victor.health.stayfit.network.GoalsRepository
 import com.victor.health.stayfit.presenter.ParentPresenter
+import io.reactivex.Observable
 import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
@@ -25,7 +25,7 @@ class MainPresenter @Inject constructor(
 
 
     interface MainView {
-        fun onGoalListReceived(goalList: ArrayList<GoalItemDto>) { }
+        fun onGoalListReceived(goalList: List<Goal>) { }
         fun onGoalListError(throwable: Throwable) { }
     }
 
@@ -35,16 +35,29 @@ class MainPresenter @Inject constructor(
 
     fun getGoalList() {
         goalsRepository.getGoals()
+                .flatMap {
+                    goalDataBase.goalDao().clearAllGoals()
+                    val goalList = goalMapper.mapArray(it.items)
+                    goalDataBase.goalDao().insertAllGoals(goalList)
+                    Observable.just(goalList)
+                }
                 .observeOn(androidScheduler)
                 .subscribeOn(subscriberScheduler)
                 .subscribe(
                         {
-                            view?.onGoalListReceived(it.items)
-                            val goalList = goalMapper.mapArray(it.items)
-                            goalDataBase.goalDao().instertAllGoals(goalList)
+                            view?.onGoalListReceived(it)
                         }, {
                             view?.onGoalListError(it)
                         })
+    }
+
+    fun getPersistedGoalList() {
+        goalDataBase.goalDao().getAllGoals()
+                .observeOn(androidScheduler)
+                .subscribeOn(subscriberScheduler)
+                .subscribe {
+                    view?.onGoalListReceived(it)
+                }
     }
 
     override fun destroy() {

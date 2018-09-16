@@ -28,9 +28,8 @@ class MainPresenterTest: ParentPresenterTest() {
 
     @Inject lateinit var goalsRepository: GoalsRepository
 
-    // TODO :: mock these two objects!!
     @Mock lateinit var goalDataBase: GoalDataBase
-    @Mock lateinit var goalMapper: GoalMapper
+    private var goalMapper = GoalMapper()
 
     @Mock lateinit var mockView: MainPresenter.MainView
     @Mock lateinit var dataManager: DataManager
@@ -86,7 +85,8 @@ class MainPresenterTest: ParentPresenterTest() {
         mainPresenter.getGoalList()
         testScheduler.triggerActions()
 
-        verify(mockView, times(1)).onGoalListReceived(mockedResponse.items)
+
+        verify(mockView, times(1)).onGoalListReceived(goalMapper.mapArray(mockedResponse.items))
     }
 
     @Test

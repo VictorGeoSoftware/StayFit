@@ -8,6 +8,8 @@ import android.arch.persistence.room.RoomDatabase
  * ${APP_NAME}
  */
 
+// todo:: https://developer.android.com/training/data-storage/room/testing-db
+
 @Database(entities = [Goal::class], version = 1)
 abstract class GoalDataBase: RoomDatabase() {
 

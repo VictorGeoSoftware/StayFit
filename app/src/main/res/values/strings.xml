@@ -2,4 +2,23 @@
     <string name="app_name">StayFit</string>
     <string name="goal_list">Goal list</string>
     <string name="reward_text">You receive a %1$s and get %2$s points</string>
+    <string name="msg_error_conection">Seems some conectivity problems …</string>
+    <string name="activity_info">Activity info</string>
+    <string name="total_steps_count">Total steps count: %1$s steps</string>
+    <string name="current_steps_count">Current steps count: %1$s steps</string>
+    <string name="current_distance">Distance covered: %1$s meters</string>
+    <string name="start_new_training">Start new training!</string>
+    <string name="stop_training">Stop training</string>
+    <string name="sure_stop_training">Sure stop training?</string>
+    <string name="sure">Sure!</string>
+    <string name="session_finished">Session finished!</string>
+    <string name="problems_closing_google_fit_session">Something happen meanwhile Google Fit was closing</string>
+    <string name="ready_for_traking">Ready for tracking!</string>
+    <string name="problems_opening_session">Some trouble happen when session was opening</string>
+    <string name="details">Running session details</string>
+    <string name="total_distance_covered">Total distance covered</string>
+    <string name="total_steps_measured">Total steps measured</string>
+    <string name="chose_again">Choose the goal again, please!</string>
+    <string name="start_moving">Start moving for register\nyour progress!</string>
+    <string name="save_progress">Save progress</string>
 </resources>

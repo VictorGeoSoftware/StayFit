@@ -1,11 +1,7 @@
 package com.victor.health.stayfit
 
-import android.test.mock.MockContext
-import com.victor.health.stayfit.di.TestDataBaseModule
 import com.victor.health.stayfit.di.TestNetworkModule
 import com.victor.health.stayfit.di.component.NetworkComponent
-import com.victor.health.stayfit.di.modules.AppModule
-import com.victor.health.stayfit.di.modules.DataBaseModule
 import com.victor.health.stayfit.di.modules.NetworkModule
 import dagger.Component
 import org.junit.Before

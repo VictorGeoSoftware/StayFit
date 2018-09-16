@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainView"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_info"
+        style="@style/MainTitle"/>
+
+    <TextView
+        android:id="@+id/txtTotalStepsCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        tools:text="@string/total_steps_count"
+        style="@style/RowInfo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/start_moving"
+        android:gravity="center"
+        style="@style/RowTitle"/>
+
+    <FrameLayout
+        android:id="@+id/layoutTraining"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtCurrentSteps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                tools:text="@string/total_steps_count"
+                style="@style/RowInfo"/>
+
+            <TextView
+                android:id="@+id/txtDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                tools:text="@string/total_distance_covered"
+                style="@style/RowInfo"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSaveProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:text="@string/save_progress"
+            android:textColor="@color/colorAccent"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"/>
+    </FrameLayout>
+</LinearLayout>
