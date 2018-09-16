@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">StayFit</string>
+    <string name="goal_list">Goal list</string>
+    <string name="reward_text">You receive a %1$s and get %2$s points</string>
+</resources>
